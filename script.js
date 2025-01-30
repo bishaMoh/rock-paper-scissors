@@ -21,44 +21,24 @@ function getHumanChoice(){
     
 }
 
-
-// declare the  players score variables
-
-
-
-
 // palying a single round
 function playRound(a, b){
-    if(a === b){
-        return "it's a draw";
-    }else if (a === "rock" && b === "paper"){
-        computerScore = computerScore + 1;
-        console.log("you lose! paper beats rock");
-        return computerScore;
-    }else if (a === "rock" && b === "scissors"){
-        humanScore = humanScore + 1;
-        console.log("you win! rock beats scissors");
+    if (a === b){
+        return "it is a draw";
+    }else if (
+        (a === "rock" && b === "paper") || (a === "scissors" && b === "rock") ||
+        (a === "paper" && b === "scissors")
+    ){
+       computerScore++;
+       console.log("you lost this round!");
+       return computerScore; 
+    }else{
+        humanScore++;
+        console.log("you won this round!");
         return humanScore;
-    }else if (a === "scissors" && b === "paper"){
-        humanScore = humanScore + 1;
-        console.log("you win! scissors beats paper");
-        return humanScore;
-    }else if (a === "scissors" && b === "rock"){
-        computerScore = computerScore + 1;
-        console.log("you lose! rock beats scissors");
-        return computerScore;
-    }else if (a === "paper" && b === "rock"){
-        humanScore = humanScore + 1;
-        console.log("you win! paper beats rock");
-        return humanScore;
-    }else if (a === "paper" && b === "scissors"){
-        computerScore = computerScore + 1;
-        console.log("you lose! scissors beats paper");
-        return computerScore;
     }
 }
-humanSelection = getHumanChoice();
-computerSelection = getComputerChoice();
+
 
 
 // playing intire game of 5 rounds
